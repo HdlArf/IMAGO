@@ -1,40 +1,110 @@
-# IMAGO — PySide6 working build
+<div align="center">
 
-This is the separate PySide6 desktop project. It does not write to or modify the original `HdlArf/IMAGO_LAB` GitHub repository.
+# IMΛGO
 
-## Run
+**A modern, elegant image editing and processing application built with PySide6 and OpenCV.**
 
-```bash
-python -m pip install -r requirements.txt
-python main.py
-```
+[![Python](https://img.shields.io/badge/Python-3.13-ffb6c1?style=for-the-badge&logo=python&logoColor=white)]()
+[![PySide6](https://img.shields.io/badge/PySide6-UI-ff69b4?style=for-the-badge&logo=qt&logoColor=white)]()
+[![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-ffc0cb?style=for-the-badge&logo=opencv&logoColor=white)]()
 
-## Current implementation
+[![Status](https://img.shields.io/badge/Status-Active%20Development-ff1493?style=for-the-badge&logo=github)]()
+[![License](https://img.shields.io/badge/License-Open%20Source-ffb6c1?style=for-the-badge)]()
 
-- Carbon dark interface with cyan accent picker; the IMAGO wordmark follows the selected accent color.
-- Minimal black HΛDΞL signature splash at startup, then transition to the main interface.
-- Manual Favorites at the top of the tool list and Arabic/English keyword search.
-- Image import, folder import, drag/drop, filmstrip, zoom-to-fit and 100% view.
-- Live preview computed from the committed image, not from the previous preview.
-- Apply and Reset Tool buttons remain hidden unless the current preview differs from the committed image.
-- Undo/redo history checkpoints and reset to original.
-- 64 sidebar tool entries across eight groups: Develop, Tone & Color, Image Arithmetic, Masks & Logic, Thresholding, Edges & Detection, Segmentation & Morphology, and Face & Object Models. Entries are mapped to processing functions in the current app; not every item is a verbatim port of a source LAB file.
-- Detector controls use local `models/` files if present, then OpenCV's bundled Haar cascades as fallback. Detection quality depends on the selected cascade and image conditions.
-- `docs/TOOL_INVENTORY.md` and `docs/REPOSITORY_AUDIT.md` document the evidence-based source catalogue and its limits. The GitHub source repository remains unchanged.
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=22&pause=1000&color=FF69B4&center=true&vCenter=true&width=600&lines=Welcome+to+IM%CE%9BGO!;Where+your+images+come+to+life.;Under+Active+Development;Open+for+Collaboration" alt="Typing SVG" />
 
-## Validation status
+</div>
 
-- Python syntax compilation: passed.
-- Core unit tests: passed (10 tests), including selected processing operations, histogram metadata, arithmetic, and loading nine Haar cascade models from the installed OpenCV distribution.
-- The GUI itself was not launched in this environment because PySide6 is not installed and package installation was blocked by unavailable network access. Install requirements on a desktop environment and run `python main.py` for interactive verification.
-- This is an expanded working build, not a final release claim: the repository tree is not fully enumerable through the available GitHub search tool, some original lab functions are reimplemented/wrapped rather than copied verbatim, and the full GUI workflow still needs a desktop smoke test. The nine detector choices use local model files if available and otherwise fall back to OpenCV cascades; these are classical cascades, not neural body-part segmentation models.
+---
 
-## Filmstrip behavior
+### Signature Splash Screen
 
-- Select a thumbnail to switch the active image.
-- Use **Remove Selected**, right-click a thumbnail and choose **Remove from Session**, or press **Delete** to remove it from the current session only. The original file on disk is not deleted.
-- Each imported image keeps its own committed edit history while switching between Filmstrip thumbnails.
+<p align="center">
+  <img src="https://img.shields.io/badge/H%CE%9BD%CE%9EL-Signature-black?style=for-the-badge&labelColor=000000&color=1d232a" width="400" alt="HΛDΞL Splash Screen"/>
+  <br>
+  <i>The official HΛDΞL signature splash screen displayed on launch.</i>
+</p>
 
-## Validation note
+---
 
-See `docs/FIX_REPORT_2026-10-19.md` for this repair pass and the distinction between processing/model smoke tests and GUI runtime testing. GUI interactions must still be verified on a system with PySide6 installed.
+## About The Project
+
+**IMΛGO** is a powerful desktop application designed for image processing enthusiasts, students, and professionals. It combines an intuitive, beautiful UI with the raw power of OpenCV algorithms to deliver a seamless editing experience.
+
+> *"Where your images come to life."*
+
+> **Project Status: Under Active Development!**
+> The core application is fully functional and works beautifully, but it is continuously being improved with new tools, performance optimizations, and UI polishing. It is **Open Source** — anyone is welcome to fork it, use it, and help it grow.
+
+---
+
+## Screenshots
+
+<div align="center">
+  
+  <img src="https://raw.githubusercontent.com/HdlArf/IMAGO/main/screenshot-1.png" width="100%" alt="IMΛGO Contrast Tool"/>
+  <br>
+  <i>Adjusting Contrast and Previewing Real-time Edits on the Main Canvas.</i>
+  <br><br>
+
+  <img src="https://raw.githubusercontent.com/HdlArf/IMAGO/main/screenshot-2.png" width="100%" alt="IMΛGO Histogram and Filmstrip"/>
+  <br>
+  <i>Interactive Image Inspector, RGB Histogram, and Multi-image Filmstrip.</i>
+  <br><br>
+
+  <img src="https://raw.githubusercontent.com/HdlArf/IMAGO/main/screenshot-3.png" width="100%" alt="IMΛGO Equalize Filter"/>
+  <br>
+  <i>Applying Advanced Filters like Histogram Equalization on Detailed Textures.</i>
+
+</div>
+
+---
+
+## Features
+
+<table>
+  <tr>
+    <td width="50%">
+      <h3>Develop Tools</h3>
+      <ul>
+        <li>Exposure, Brightness, Contrast, Saturation</li>
+        <li>Sharpen, Gaussian Blur, Mean/Median Filter</li>
+        <li>Resize, Rotate, Translate, Crop</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <h3>Color & Tone</h3>
+      <ul>
+        <li>HDR Tone Mapping</li>
+        <li>Histogram Equalization</li>
+        <li>Negative, Log & Gamma Transforms</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3>Masks & Logic</h3>
+      <ul>
+        <li>Bitwise AND, OR, XOR, NOT</li>
+        <li>Color Masking & Object Extraction</li>
+        <li>Draw Lines, Rectangles, Circles</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <h3>AI & Detection</h3>
+      <ul>
+        <li>Face, Eye, Smile Detection</li>
+        <li>Full Body, Upper Body Detection</li>
+        <li>Cat Face & License Plate Detection</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+---
+
+## Quick Start
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/HdlArf/IMAGO.git
